@@ -30,3 +30,5 @@ Route::get('/about', [PagesController::class, 'about']);
 Route::get('/services', [PagesController::class, 'services']);
 
 Route::resource('posts', PostsController::class);
+
+// Route::resource('/post', PostsController::class, 'post');

@@ -67,7 +67,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -75,17 +75,19 @@ class PostsController extends Controller
         ]);
 
         // Edit Post
-        // $post = Post::find($id);
-        // $post->title = $request->input('title');
-        // $post->body = $request->input('body');
-        // $post->save();
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->update();
 
-        $post->update([
-            'title' => $request->title,
-            'body' => $request->body,
-        ]);
+        // $post->update([
+        //     'title' => $request->title,
+        //     'body' => $request->body,
+        // ]);
         
-        return redirect('/posts')->with('success', 'Post Updated');
+        return view('posts.show')
+            ->with('post', $post)
+            ->with('success', 'Post Updated');
     }
 
     /**
