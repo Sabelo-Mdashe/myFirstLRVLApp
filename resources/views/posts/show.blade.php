@@ -6,6 +6,6 @@
         <small>Written on {{ $post->created_at }}</small>
         <hr>
         <div>
-            {{ $post->body }}
+            {!! $post->body !!}
         </div>
     @endsection

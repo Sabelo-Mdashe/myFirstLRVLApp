@@ -7,7 +7,7 @@
         <title>{{config('app.name', 'MY LARAVEL APP')}}</title>
     </head>
     <body class="antialiased">
-       <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+       <nav class="navbar navbar-expand-lg bg-dark mb-3 p-3" data-bs-theme="dark">
         <div class="container">
           <a class="navbar-brand" href="/">BLOGz</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/posts">Blog</a>
               </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/posts/create" style="text-decoration: none">Create Post</a></li>
             </ul>
           </div>
         </div>

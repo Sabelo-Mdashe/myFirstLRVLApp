@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
     @section('content')
-        <h1>Create Posts</h1>
-        {{ html()->form('POST', '/post')->open(['action' => 'PostsController@store']) }}
+        <h1>Create Post</h1>
+        {{ html()->form('POST', '/posts')->open(['action' => 'PostsController@store']) }}
         <div class="form-group">
 
             {{ html()->label('Title')}}
@@ -14,8 +14,10 @@
 
             {{ html()->label('Body')}}
 
-            {{ html()->textarea('body', '')->class('form-control')->placeholder('Body Text') }}
+            {{ html()->textarea('body', '')->id('editor')->class('form-control')->placeholder('Body Text')->rows('7') }}
         </div>
+
+        {{ html()->submit('Submit')->class('btn btn-primary mt-5')}}
 
         {{ html()->form()->close() }}
     @endsection
