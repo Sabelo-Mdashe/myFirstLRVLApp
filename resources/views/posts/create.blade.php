@@ -19,5 +19,8 @@
 
         {{ html()->submit('Submit')->class('btn btn-primary mt-5')}}
 
+        <a href="/posts" class="btn btn-default btn-danger mt-5">Cancel</a>
         {{ html()->form()->close() }}
+        
+
     @endsection

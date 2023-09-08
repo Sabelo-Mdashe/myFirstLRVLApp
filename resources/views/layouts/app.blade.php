@@ -8,11 +8,7 @@
 
         <title>{{config('app.name', 'MY LARAVEL APP')}}</title>
 
-        <style type="text/css">
-            #editor {
-                background-color: red;
-            }
-        </style>
+
         
     </head>
     <body class="antialiased">

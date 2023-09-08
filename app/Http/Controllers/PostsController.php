@@ -60,15 +60,32 @@ class PostsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+        // Edit Post
+        // $post = Post::find($id);
+        // $post->title = $request->input('title');
+        // $post->body = $request->input('body');
+        // $post->save();
+
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+        
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
@@ -76,6 +93,8 @@ class PostsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::destroy($id);
+
+        return redirect('/posts')->with('success', 'Post Deleted Successfully');
     }
 }
