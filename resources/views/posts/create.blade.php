@@ -10,7 +10,7 @@
             {{ html()->text('title', '')->class('form-control')->placeholder('Title') }}
         </div>
 
-        <div class="form-group mt-5">
+        <div @class(['form-group', 'mt-5'])>
 
             {{ html()->label('Body')}}
 
@@ -19,8 +19,7 @@
 
         {{ html()->submit('Submit')->class('btn btn-primary mt-5')}}
 
-        <a href="/posts" class="btn btn-default btn-danger mt-5">Cancel</a>
-        {{ html()->form()->close() }}
-        
+        <a href="/posts" @class(['btn', 'btn-default', 'btn-danger', 'mt-5'])>Cancel</a>
+        {{ html()->form()->close() }}        
 
     @endsection
