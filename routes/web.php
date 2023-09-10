@@ -32,3 +32,6 @@ Route::get('/services', [PagesController::class, 'services']);
 Route::resource('/posts', PostsController::class);
 
 // Route::resource('/post', PostsController::class, 'post');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
