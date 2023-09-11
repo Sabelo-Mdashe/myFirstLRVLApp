@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{config('app.name', 'MY LARAVEL APP')}}</title>
+        <title>{{config('app.name', 'BLOGz')}}</title>
     </head>
     <body class="antialiased">
        <nav class="navbar navbar-expand-md bg-dark mb-3 p-3" data-bs-theme="dark">
@@ -55,6 +55,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a @class(['dropdown-item']) href="/home">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

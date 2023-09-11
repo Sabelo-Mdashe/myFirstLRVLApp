@@ -2,7 +2,6 @@
 
     @section('content')
     <div @class(['d-flex', 'justify-content-end'])>
-        <a href="/posts/create" style="text-decoration: none" @class(['text-end', 'btn', 'btn-default', 'btn-primary'])>Create Post</a>
     </div>
     <h1>Posts</h1>
         @if (count($posts) > 0)
