@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
     @section('content')
-    @if (Route::has('login'))
+    @if (!Auth::guest())
         <a href="/home" @class(['btn', 'btn-default', 'btn-light', 'mb-2'])>Go Back</a>
         @else 
             <a href="/posts" @class(['btn', 'btn-default', 'btn-light', 'mb-2'])>Go Back</a>

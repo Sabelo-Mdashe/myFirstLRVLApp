@@ -1,18 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mb-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     <div @class(['d-flex', 'justify-content-end'])>
                         <a href="/posts/create" style="text-decoration: none" @class(['text-end', 'btn', 'btn-default', 'btn-primary'])>Create Post</a>
                     </div>
@@ -28,9 +23,13 @@
                             @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $post->title }}</td>
-                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}/edit"><i class="fa-solid fa-pencil"></i></a></td>
-                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}"><i class="fa-solid fa-eye"></i></a></td>
                                     <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td @class(['d-flex', 'gap-3', 'justify-content-end'])>
+                                        <a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}/edit"><i class="fa-solid fa-pencil"></i></a>
+                                        <a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}"><i class="fa-solid fa-eye"></i></a>
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                             @method('Delete')
                                             @csrf
@@ -45,8 +44,6 @@
                     @endif
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
