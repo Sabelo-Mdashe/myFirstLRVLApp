@@ -39,6 +39,6 @@
             config.height = '25em';     // CSS length.
             config.height = '300px';    // CSS length.
     </script>
-    
+    <script src="https://kit.fontawesome.com/5f5e9bd818.js" crossorigin="anonymous"></script>
 </body>
 </html>

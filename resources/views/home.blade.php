@@ -23,16 +23,19 @@
                                 <th>Title</th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $post->title }}</td>
-                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}/edit">Edit</a></td>
+                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}/edit"><i class="fa-solid fa-pencil"></i></a></td>
+                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}"><i class="fa-solid fa-eye"></i></a></td>
                                     <td>
-                                        {{-- {{ html()->form('POST')->open(['action' => 'PostsController@destroy', $post->id]) }}
-                                            @method('DELETE')
-                                            {{ html()->submit('Delete')->class('btn btn-danger') }}
-                                        {{ html()->form()->close() }} --}}
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                            @method('Delete')
+                                            @csrf
+                                            <button @class(['btn', 'btn-danger']) type="submit"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
