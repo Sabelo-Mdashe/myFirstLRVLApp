@@ -12,7 +12,7 @@
                         <div class="fw-bold">
                             <h3><a style="text-decoration: none;" href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
                         </div>
-                            <small>Written on {{$post->created_at}}</small>
+                            <small>Written on {{$post->created_at}} by {{ $post->user->name }}</small>
                         </div>
                     </li>
                 @endforeach

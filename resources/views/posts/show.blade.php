@@ -7,7 +7,7 @@
             {!! $post->body !!}
         </div>
         <hr>
-        <small>Written on {{ $post->created_at }}</small>
+        <small>Written on {{ $post->created_at }} by {{ $post->user->name }}</small>
         <br>
         <div @class(['d-flex', 'gap-3'])>
             <a href="/posts/{{$post->id}}/edit" @class(['btn', 'btn-default', 'btn-light', 'mt-5'])>Edit</a>

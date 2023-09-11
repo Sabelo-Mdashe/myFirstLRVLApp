@@ -17,22 +17,29 @@
                         <a href="/posts/create" style="text-decoration: none" @class(['text-end', 'btn', 'btn-default', 'btn-primary'])>Create Post</a>
                     </div>
                     <h3>Your Blog Posts</h3>
-
-                    <table @class(['table', 'table-striped'])>
-                        <tr>
-                            <th>Title</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        @foreach ($posts as $post)
+                    @if (count($posts) > 0)                     
+                        <table @class(['table', 'table-striped'])>
                             <tr>
-                                <td>{{ $post->title }}</td>
-                                <td><a href="/posts/{{ $post->id }}/edit">Edit</a></td>
-                                <td></td>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                    </table>
-                    {{-- {{  }} --}}
+                            @foreach ($posts as $post)
+                                <tr>
+                                    <td>{{ $post->title }}</td>
+                                    <td><a @class(['btn', 'btn-default', 'btn-light']) href="/posts/{{ $post->id }}/edit">Edit</a></td>
+                                    <td>
+                                        {{-- {{ html()->form('POST')->open(['action' => 'PostsController@destroy', $post->id]) }}
+                                            @method('DELETE')
+                                            {{ html()->submit('Delete')->class('btn btn-danger') }}
+                                        {{ html()->form()->close() }} --}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>    
+                    @else
+                        <p>You have no posts</p>
+                    @endif
                 </div>
             </div>
 
