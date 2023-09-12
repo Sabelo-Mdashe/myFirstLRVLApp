@@ -73,8 +73,8 @@
             <div class="accordion accordion-flush mt-3 btn" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="fasle" aria-controls="flush-collapseOne">
-                            Available Profiles
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="fasle" aria-controls="flush-collapseOne">
+                            Available Profiles For Use
                         </button>
                     </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -94,7 +94,7 @@
                             </tr>
                         </table>
                     </div>
-                    <a href="{{ route('register') }}" @class(['btn', 'btn-default', 'btn-primary'])>Create New</a>
+                    {{-- <a href="{{ route('register') }}" @class(['btn', 'btn-default', 'btn-primary'])>Create New</a> --}}
                   </div>
                 </div>
             </div>
