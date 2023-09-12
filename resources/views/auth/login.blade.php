@@ -74,16 +74,27 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="fasle" aria-controls="flush-collapseOne">
-                            Admin Info
+                            Available Profiles
                         </button>
                     </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                      <p><strong>Name:</strong> admin</p>
-                      <p><strong>Email:</strong> admin@admin.com</p>
-                      <p><strong>Password:</strong> admin123</p>
-                      <p><strong>Permissions:</strong> Create, Edit & Delete</p>
+                        <table @class(['table', 'table-striped'])>
+                            <tr>
+                                <th>Email</th>
+                                <th>Password</th>
+                            </tr>
+                            <tr>
+                                <td>admin@admin.com</td>
+                                <td>admin123</td>
+                            </tr>
+                            <tr>
+                                <td>user@user.com</td>
+                                <td>user1234</td>
+                            </tr>
+                        </table>
                     </div>
+                    <a href="{{ route('register') }}" @class(['btn', 'btn-default', 'btn-primary'])>Create New</a>
                   </div>
                 </div>
             </div>

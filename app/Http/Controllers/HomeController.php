@@ -33,6 +33,6 @@ class HomeController extends Controller
 
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-          return view('users.user')->with('user', $user);
+        return view('users.user')->with('user', $user);
     }
 }
