@@ -19,7 +19,10 @@
 
         {{ html()->submit('Submit')->class('btn btn-primary mt-5')}}
 
-        <a href="/posts" @class(['btn', 'btn-default', 'btn-danger', 'mt-5'])>Cancel</a>
+        @if (!Auth::guest())
+        <a href="/home" @class(['btn', 'btn-default', 'btn-danger', 'mt-5'])>Cancel</a>
+        @endif
+
         {{ html()->form()->close() }}        
 
     @endsection

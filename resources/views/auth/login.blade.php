@@ -67,7 +67,33 @@
                     </form>
                 </div>
             </div>
+            {{-- <button @class(['mt-3', 'btn', 'btn-default', 'btn-info']) >
+                Admin Info
+            </button> --}}
+            <div class="accordion accordion-flush mt-3 btn" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="fasle" aria-controls="flush-collapseOne">
+                            Admin Info
+                        </button>
+                    </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      <p><strong>Name:</strong> admin</p>
+                      <p><strong>Email:</strong> admin@admin.com</p>
+                      <p><strong>Password:</strong> admin123</p>
+                      <p><strong>Permissions:</strong> Create, Edit & Delete</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 @endsection
+
+<style>
+    .accordion-body > p {
+        text-align: start;
+    }
+</style>

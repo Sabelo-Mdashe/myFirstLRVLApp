@@ -7,7 +7,7 @@
         <title>{{config('app.name', 'BLOGz')}}</title>
     </head>
     <body class="antialiased">
-       <nav class="navbar navbar-expand-md bg-dark mb-3 p-3" data-bs-theme="dark">
+       <nav class="navbar navbar-expand-md bg-dark mb-3" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BL<span>O</span>Gz
@@ -25,9 +25,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/services">Services</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/posts">Blog</a>
                         </li>
@@ -43,19 +43,24 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-end align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img @class(['me-1']) src="/storage/admin.png" alt="Avatar" width="7%">
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a @class(['dropdown-item']) href="/home">Dashboard</a>
+                                    <a @class(['dropdown-item', 'd-flex', 'justify-content-between', 'align-items-center']) href="/user">
+                                        Profile
+                                        <i class="fa-solid fa-user"></i>
+                                    </a>
                                     <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
