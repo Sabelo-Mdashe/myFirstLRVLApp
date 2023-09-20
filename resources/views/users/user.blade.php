@@ -7,7 +7,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $user->name }}</h5>
           <p class="card-text">{{ $user->email }}</p>
-          <a href="#" class="btn btn-primary">Edit Profile</a>
+          {{-- <a href="#" class="btn btn-primary">Edit Profile</a> --}}
         </div>
     </div>
     @endsection

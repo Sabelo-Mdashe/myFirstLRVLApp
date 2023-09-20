@@ -29,6 +29,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->paginate(10);
+        
+        // ->last() / latest() TO GET THE LAST ENTRY
 
         // $posts = Post::all();
         return view('posts.index')->with('posts', $posts);
@@ -50,17 +52,23 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        // $imageName = time().'.'.$request->image->extension();
+        // $request->image;
 
         // Create Post
         $post = new Post;
-
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
+        // $post->post_image = $request->image->move(public_path('images'), $imageName)->storeAs('images', $imageName);
         $post->save();
 
-        return redirect('/home')->with('success', 'Post Created');
+        return redirect('/home')
+            ->with('success', 'Post Created');
+            // ->with('image', $imageName);
     }
 
     /**
