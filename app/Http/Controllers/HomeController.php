@@ -35,4 +35,30 @@ class HomeController extends Controller
         $user = User::find($user_id);
         return view('users.user')->with('user', $user);
     }
+
+    public function editProfile() {
+
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id); 
+        return view('users.edit')->with('user', $user);
+
+    }
+
+    public function updateProfile(Request $request, User $user) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+    
+        // Edit User
+        // $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->update();
+        
+        return view('users.user')
+            ->with('user', $user)
+            ->with('success', 'User Updated');
+    }
 }

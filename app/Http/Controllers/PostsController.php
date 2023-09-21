@@ -55,15 +55,15 @@ class PostsController extends Controller
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // $imageName = time().'.'.$request->image->extension();
-        // $request->image;
+        // $imageName = time().'.'.$request->image->extension();  
+        // $request->image->move(public_path('images'), $imageName);
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        // $post->post_image = $request->image->move(public_path('images'), $imageName)->storeAs('images', $imageName);
+        // $post->post_image = $request->image->storeAs('images', $imageName);
         $post->save();
 
         return redirect('/home')

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserAdmin;
 
 /*
@@ -34,6 +35,10 @@ Route::resource('/posts', PostsController::class);
 // Route::resource('/post', PostsController::class, 'post');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'showProfile'])->name('user');
+Route::get('/user', [HomeController::class, 'showProfile'])->name('user');
+
+Route::get('/edit', [HomeController::class, 'editProfile'])->name('user');
+
+Route::put('/update/{user}', [HomeController::class, 'updateProfile']);

@@ -3,7 +3,7 @@
     @section('content')
         <h1>Create Post</h1>
         {{ html()->form('POST', '/posts')->open(['action' => 'PostsController@store']) }}
-        <div class="form-group">
+            <div class="form-group">
 
                 {{ html()->label('Title')}}
 
