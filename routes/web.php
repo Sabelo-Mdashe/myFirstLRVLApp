@@ -32,7 +32,6 @@ Route::get('/about', [PagesController::class, 'about']);
 
 Route::resource('/posts', PostsController::class);
 
-// Route::resource('/post', PostsController::class, 'post');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

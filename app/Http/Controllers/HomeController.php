@@ -49,12 +49,17 @@ class HomeController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
+            'avatar' => 'required',
         ]);
+
+        $avatarName = time() . '-' . $request->name . '.' . $request->avatar->extension();
+        $request->avatar->storeAs('public/avatars', $avatarName);
     
         // Edit User
         // $user = User::find($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->avatar = $avatarName;
         $user->update();
         
         return view('users.user')

@@ -49,26 +49,28 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'post_image' => 'required',
         ]);
 
-        // $imageName = time().'.'.$request->image->extension();  
-        // $request->image->move(public_path('images'), $imageName);
+        $imageName = time() . '-' . $request->title . '.' . $request->post_image->extension();  
+        $request->post_image->storeAs('public/images', $imageName);
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        // $post->post_image = $request->image->storeAs('images', $imageName);
+        $post->post_image = $imageName;
         $post->save();
 
         return redirect('/home')
-            ->with('success', 'Post Created');
-            // ->with('image', $imageName);
+            ->with('success', 'Post Created')
+            ->with('post', $post);
     }
 
     /**
